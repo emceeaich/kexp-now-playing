@@ -14,8 +14,11 @@ function renderData() {
     if(response.ok) {
       response.json()
       .then(data => {
+        var html = "";
         // clean up 
-        main.innerHTML = `<img class="album-art" src="${data.release.largeimageuri}" alt="album art">
+        main.innerHTML = "";
+        if "
+        `<img class="album-art" src="${data.release.largeimageuri}" alt="album art">
                           <div class="track">
                           <h2>${data.artist.name}<h2>
                           <h3>${data.track.name}</h3>
