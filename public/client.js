@@ -1,3 +1,5 @@
+var main;
+
 document.onreadystatechange = () => {
   if (document.readyState === 'interactive') {
     main = document.querySelector('main');
@@ -11,19 +13,21 @@ function renderData() {
   .then(response => {
     if(response.ok) {
       response.json()
-      .then(body => {
+      .then(data => {
         // clean up 
-        main.innerHTML = '';
-      }
-
-  $('form').submit(function(event) {
-    event.preventDefault();
-    var dream = $('input').val();
-    $.post('/dreams?' + $.param({dream: dream}), function() {
-      $('<li></li>').text(dream).appendTo('ul#dreams');
-      $('input').val('');
-      $('input').focus();
-    });
-  });
-
-});
+        main.innerHTML = `<img class="album-art" src="${data.release.smallimageuri}" alt="album art">
+                          <div class="track">
+                          <h2>${data.artist.name}<h2>
+                          <h3>${data.track.name}</h3>
+                          <h4>${data.release.name}</h4>
+                          </div>
+                          <div class="comment">
+                            <p>${data.comments
+                          </div>`;
+                          
+        
+      });
+    }
+  })
+  .catch();
+}
