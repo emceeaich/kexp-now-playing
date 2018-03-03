@@ -21,7 +21,7 @@ header h1 {
 
 main {
   display: grid;
-  grid-template-columns: 25vw 1fr;
+  grid-template-columns: 20vw 1fr;
 }
 
 main .album-art {
@@ -40,7 +40,7 @@ main h2, main h3, main h4 {
 ul {
   margin: 0px;
   padding: 0px;
-  text-align: center;
+
 }
 
 li {
