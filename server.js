@@ -1,10 +1,11 @@
 const fetch = require('node-fetch');
 const express = require('express');
 const app = express();
-var   data = JSON.stringify({
+var   data = {
   "message": "No data yet",
   "status" : "not-ready"
-});
+};
+var   id = null;
 
 app.use(express.static('public'));
 
@@ -13,7 +14,7 @@ app.get("/", function (request, response) {
 });
 
 app.get("/data", function (request, response) {
-  response.send(data);
+  response.send(JSON.stringify(data));
 });
 
 function update() {
@@ -22,18 +23,20 @@ function update() {
       if (response.ok) {
         response.json()
         .then(newData => {
-          if (newData.artist) {
-            newData.message = "Okay";
-            newData.status = 'ready';
-            data = JSON.stringify(newData);
+          var result = newData.results.pop();
+          var newId  = result.playid;
+          if (result.artist && newId !== id) {
+            result.message = "Okay";
+            result.status = 'ready';
+            data = result;
           }
           console.log(data);
         })
         .catch(err => {
-          data = JSON.stringify({
+          data = {
               "message": `Error getting data: ${err}`,
               "status": 'not-ready'
-          });
+          };
         });
       }
   })

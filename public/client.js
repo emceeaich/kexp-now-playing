@@ -1,17 +1,20 @@
-// client-side js
-// run by the browser each time your view template is loaded
-
-// by default, you've got jQuery,
-// add other scripts at the bottom of index.html
-
-$(function() {
-  console.log('hello world :o');
+document.onreadystatechange = () => {
+  if (document.readyState === 'interactive') {
+    main = document.querySelector('main');
+    renderData();
+    window.setInterval(renderData, 60*1000);
+  }
+};
   
-  $.get('/dreams', function(dreams) {
-    dreams.forEach(function(dream) {
-      $('<li></li>').text(dream).appendTo('ul#dreams');
-    });
-  });
+function renderData() {
+  fetch('/data')
+  .then(response => {
+    if(response.ok) {
+      response.json()
+      .then(body => {
+        // clean up 
+        main.innerHTML = '';
+      }
 
   $('form').submit(function(event) {
     event.preventDefault();
