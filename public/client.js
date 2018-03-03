@@ -1,8 +1,9 @@
-var main;
+var main, footer;
 
 document.onreadystatechange = () => {
   if (document.readyState === 'interactive') {
     main = document.querySelector('main');
+    footer = document.querySelector('footer ul');
     renderData();
     window.setInterval(renderData, 60*1000);
   }
@@ -21,6 +22,9 @@ function renderData() {
         }
         
         var html = "";
+        var timestamp;
+        var li;
+        
         // clean up 
         main.innerHTML = "";
         if (data.release && data.release.largeimageuri) {
@@ -46,6 +50,13 @@ function renderData() {
         }
         
         main.insertAdjacentHTML('beforeend', html);
+        
+        // Timestamp
+        timestamp = new Date(data.airdate).toLocaleString();
+        if (li = footer.querySelector('.timestamp')) {
+          footer.querySelector('.timestamp').innerHTML = '';
+        }
+        footer.insertAdjacentHTML('beforeend', `<li class="timestamp">Last update ${timestamp}</li>`);
         
       });
     }
