@@ -15,17 +15,15 @@ function renderData() {
       response.json()
       .then(data => {
         // clean up 
-        main.innerHTML = `<img class="album-art" src="${data.release.smallimageuri}" alt="album art">
+        main.innerHTML = `<img class="album-art" src="${data.release.largeimageuri}" alt="album art">
                           <div class="track">
                           <h2>${data.artist.name}<h2>
                           <h3>${data.track.name}</h3>
                           <h4>${data.release.name}</h4>
                           </div>
                           <div class="comment">
-                            <p>${data.comments
+                            <p>${data.comments[0].text}</p>
                           </div>`;
-                          
-        
       });
     }
   })
