@@ -10,6 +10,10 @@ body {
   background-color: black;
 }
 
+header h1 {
+  font-size: 12vh;
+}
+
 main {
   display: grid;
   grid-template-columns: 25vw 1fr;

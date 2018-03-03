@@ -14,19 +14,30 @@ function renderData() {
     if(response.ok) {
       response.json()
       .then(data => {
+        
+        if (data.status === 'not-ready') {
+          main.innerHTML = "<p>No data.</p>";
+          return;
+        }
+        
         var html = "";
         // clean up 
         main.innerHTML = "";
         if (data.release && data.release.largeimageuri) {
           html += `<img class="album-art" src="${data.release.largeimageuri}" alt="album art">`;
         } else {
-          html += `<img class="album-art" src="https://kexp.org/static/assets/img/default.png" alt="no album art">`; 
+          html += '<img class="album-art" src="https://kexp.org/static/assets/img/default.png" alt="no album art">'; 
         }
         
         html += `<div class="track">
                    <h2>${data.artist.name}<h2>
-                   <h3>${data.track.name}</h3>
-                 </div>`;
+                   <h3>${data.track.name}</h3>`;
+        
+        if (data.release && data.release.name) {
+          html += `<h4>${data.release.name}</h4>`; 
+        }
+        
+        html +=  "</div>";
         
         if (data.comments && data.comments.length > 0) {
           html += `<div class="comment">
