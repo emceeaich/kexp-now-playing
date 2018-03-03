@@ -19,21 +19,25 @@ app.get("/data", function (request, response) {
 function update() {
   fetch("https://legacy-api.kexp.org/play/?format=json&limit=1&ordering=-airdate")
     .then(response => {
-      if (response.ok)
-      response.json()
-      .then(data => {
-        data.message = "Okay",
-        data.status = 'ready'
-      })
-      .error(err => {
-        data = JSON.stringify({
-            "message": `Error getting data: ${err}`,
-            "status": 'not-ready'
+      if (response.ok) {
+        response.json()
+        .then(newData => {
+          if (newData.artist) {
+            newData.message = "Okay";
+            newData.status = 'ready';
+            data = JSON.stringify(newData);
+          }
+          console.log(data);
+        })
+        .catch(err => {
+          data = JSON.stringify({
+              "message": `Error getting data: ${err}`,
+              "status": 'not-ready'
+          });
         });
-      });
+      }
   })
-}
-          
+}           
 var timeout = setInterval(update, 60*1*1000);
 
 // get first set of data
