@@ -53,8 +53,9 @@ function renderData() {
         
         // Timestamp
         timestamp = new Date(data.airdate).toLocaleString();
-        if (li = footer.querySelector('.timestamp')) {
-          footer.querySelector('.timestamp').innerHTML = '';
+        li = footer.querySelector('.timestamp');
+        if (li) {
+          li.remove();
         }
         footer.insertAdjacentHTML('beforeend', `<li class="timestamp">Last update ${timestamp}</li>`);
         
