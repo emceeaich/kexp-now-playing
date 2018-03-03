@@ -1,17 +1,14 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-
-  "name": "my-glitch-app",
+"name": "kexp-now-playing",
   "version": "0.0.1",
-  "description": "What am I about?",
+  "description": "Display currently playing track on KEXP.org",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "node-fetch": "^2.0.0"
   },
   "engines": {
     "node": "8.x"
@@ -21,8 +18,9 @@
   },
   "license": "MIT",
   "keywords": [
-    "node",
-    "glitch",
-    "express"
+    "music",
+    "streaming",
+    "kexp",
+    "public radio"
   ]
 }
