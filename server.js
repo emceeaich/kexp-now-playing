@@ -14,7 +14,7 @@ app.get("/", function (request, response) {
 });
 
 app.get("/data", function (request, response) {
-  response.send(JSON.stringify(data));
+  response.send(data);
 });
 
 function update() {

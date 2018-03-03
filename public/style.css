@@ -12,7 +12,7 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 33vw 1fr;
+  grid-template-columns: 25vw 1fr;
 }
 
 main .album-art {

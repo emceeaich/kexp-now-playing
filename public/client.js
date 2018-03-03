@@ -17,16 +17,25 @@ function renderData() {
         var html = "";
         // clean up 
         main.innerHTML = "";
-        if "
-        `<img class="album-art" src="${data.release.largeimageuri}" alt="album art">
-                          <div class="track">
-                          <h2>${data.artist.name}<h2>
-                          <h3>${data.track.name}</h3>
-                          <h4>${data.release.name}</h4>
-                          </div>
-                          <div class="comment">
-                            <p>${data.comments[0].text}</p>
-                          </div>`;
+        if (data.release && data.release.largeimageuri) {
+          html += `<img class="album-art" src="${data.release.largeimageuri}" alt="album art">`;
+        } else {
+          html += `<img class="album-art" src="https://kexp.org/static/assets/img/default.png" alt="no album art">`; 
+        }
+        
+        html += `<div class="track">
+                   <h2>${data.artist.name}<h2>
+                   <h3>${data.track.name}</h3>
+                 </div>`;
+        
+        if (data.comments && data.comments.length > 0) {
+          html += `<div class="comment">
+                     <p>${data.comments[0].text}</p>
+                   </div>`;
+        }
+        
+        main.insertAdjacentHTML('beforeend', html);
+        
       });
     }
   })
