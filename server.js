@@ -18,7 +18,9 @@ app.get("/data", function (request, response) {
 });
 
 function update() {
-  fetch("https://legacy-api.kexp.org/play/?format=json&limit=1&ordering=-airdate")
+  fetch("https://legacy-api.kexp.org/play/?format=json&limit=1&ordering=-airdate", {
+    headers: { "User-Agent": "kexp-now-playing app, contact Emma Humphries <ech@emmah.net>" }
+  }) 
     .then(response => {
       if (response.ok) {
         response.json()
@@ -41,7 +43,7 @@ function update() {
       }
   })
 }           
-var timeout = setInterval(update, 60*1*1000);
+var timeout = setInterval(update, 60*1000);
 
 // get first set of data
 update();
