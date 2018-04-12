@@ -43,11 +43,12 @@ function renderData() {
                   + '</div>';
         }
         
+        console.log(html);
         main.innerHTML = html;
         
         // Timestamp
         timestamp = new Date(data.airdate).toLocaleString();
-        li = footer.querySelector('.timestamp');
+        li = footer.find('.timestamp');
         if (li) {
           li.remove();
         }
