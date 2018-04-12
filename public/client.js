@@ -1,20 +1,17 @@
 var main, footer;
-
-document.onreadystatechange = () => {
-  if (document.readyState === 'interactive') {
+    
+$(function() {
     main = document.querySelector('main');
     footer = document.querySelector('footer ul');
     renderData();
     window.setInterval(renderData, 60*1000);
   }
-};
+);
   
 function renderData() {
+  $.ajax('/data'
   fetch('/data')
-  .then(response => {
-    if(response.ok) {
-      response.json()
-      .then(data => {
+
         
         if (data.status === 'not-ready') {
           main.innerHTML = "<p>No data.</p>";
