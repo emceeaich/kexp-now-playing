@@ -11,7 +11,7 @@ $(function() {
 function renderData() {
   $.getJSON('/data', function(data) {
         if (data.status === 'not-ready') {
-          main.innerHTML = "<p>No data.</p>";
+          main.html('<p>No data.</p>');
           return;
         }
         
@@ -22,7 +22,7 @@ function renderData() {
         // clean up 
         main.innerHTML = '';
         if (data.release && data.release.largeimageuri) {
-          html += '<img class="album-art" src=' + data.release.largeimageuri + '" alt="album art">';
+          html += '<img class="album-art" src="' + data.release.largeimageuri + '" alt="album art">';
         } else {
           html += '<img class="album-art" src="https://kexp.org/static/assets/img/default.png" alt="no album art">'; 
         }
@@ -43,8 +43,7 @@ function renderData() {
                   + '</div>';
         }
         
-        console.log(html);
-        main.innerHTML = html;
+        main.html(html);
         
         // Timestamp
         timestamp = new Date(data.airdate).toLocaleString();
@@ -52,6 +51,6 @@ function renderData() {
         if (li) {
           li.remove();
         }
-        footer.innerHTML = '<li class="timestamp">Last update ' + timestamp + '</li>';   
+        footer.append('<li class="timestamp">Last update ' + timestamp + '</li>');   
   });
 }
