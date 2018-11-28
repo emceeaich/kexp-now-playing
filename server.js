@@ -25,14 +25,19 @@ function update() {
       if (response.ok) {
         response.json()
         .then(newData => {
-          var result = newData.results[newData.results.length - 1];
-          var newId  = result.playid;
-          if (result.artist && newId !== id) {
+          if (newData.results && newData.results.length > 0) {
+            newData.results.find(result => {
+              var newId  = result.playid;
+              return (esult.artist && newId !== id; {
             result.message = "Okay";
             result.status = 'ready';
             data = result;
           }
-          console.log(data);
+          console.log(data);             
+            }
+                  });
+          
+
         })
         .catch(err => {
           data = {
