@@ -24,7 +24,9 @@ a {
 }
 
 div.main .album-art {
-  display: none;
+  width: 25%;
+  display: float;
+  align: left;
 }
 
 div.main .track {
@@ -59,11 +61,7 @@ li:last-of-type::after {
 @supports (display: grid) {
   div.main .album-art {
     width: 100%;
-    display: unset;
-  }
-  
-  div.main .track {
-    display: unset; 
+    
   }
   
   div.main {
