@@ -18,14 +18,14 @@ app.get("/data", function (request, response) {
 });
 
 function update() {
-  fetch("https://legacy-api.kexp.org/play/?format=json&limit=1&ordering=-airdate", {
+  fetch("https://legacy-api.kexp.org/play/?format=json&ordering=-airdate", {
     headers: { "User-Agent": "kexp-now-playing app, contact Emma Humphries <ech@emmah.net>" }
   }) 
     .then(response => {
       if (response.ok) {
         response.json()
         .then(newData => {
-          var result = newData.results.pop();
+          var result = newData.results[newData.results.length - 1];
           var newId  = result.playid;
           if (result.artist && newId !== id) {
             result.message = "Okay";
