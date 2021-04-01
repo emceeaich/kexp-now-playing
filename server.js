@@ -19,14 +19,14 @@ app.get("/data", function(request, response) {
 
 function update() {
   console.debug('in update')
-  fetch("https://legacy-api.kexp.org/play/?format=json&limit=5ordering=-airdate", {
+  fetch("https://api.kexp.org/play/?format=json&limit=5ordering=-airdate", {
 /*
 #    headers: {
 #      "User-Agent":
 #        "kexp-now-playing app, contact Emma Humphries <ech@emmah.net>"
 */
     }
-  }).then(response => {
+  ).then(response => {
     if (response.ok) {
       response
         .json()
