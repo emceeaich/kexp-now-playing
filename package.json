@@ -7,14 +7,14 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "node-fetch": "^2.3.0"
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
   },
   "engines": {
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "https://glitch.com/edit/#!/kexp-now-play"
   },
   "license": "MIT",
   "keywords": [
