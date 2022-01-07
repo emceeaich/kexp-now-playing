@@ -5,7 +5,7 @@
 body {
   font-family: helvetica, arial, sans-serif;
   margin: 3vh;
-  font-family: 'Patua One', sans-serif;
+  font-family: "Patua One", sans-serif;
   color: goldenrod;
   background-color: black;
 }
@@ -26,7 +26,7 @@ a {
 div.main .album-art {
   width: 25%;
   display: float;
-  align: left;
+  
 }
 
 div.main .track {
@@ -34,14 +34,15 @@ div.main .track {
   font-size: 3vh;
 }
 
-main h2, main h3, main h4 {
+main h2,
+main h3,
+main h4 {
   margin-top: unset;
 }
 
 ul {
   margin: 0px;
   padding: 0px;
-
 }
 
 li {
@@ -51,43 +52,41 @@ li {
 }
 
 li::after {
-  content: ' • ';
+  content: " • ";
 }
 
 li:last-of-type::after {
-  content: none
+  content: none;
 }
 
 @supports (display: grid) {
   div.main .album-art {
     width: 100%;
-    
   }
-  
+
   div.main {
     display: grid;
     grid-template-columns: 20vw 1fr;
   }
-  
+
   div.main .comment {
     grid-column: span 2;
   }
 }
 
 @media (min-width: 600px) {
-  
   body {
     margin: 5vh;
   }
-  
+
   div.header h1 {
-    font-size: 10vh
+    font-size: 10vh;
   }
-  
+
   div.header h1 img {
     max-height: 8vh;
   }
-  
+
   div.main .track {
     font-size: 5vh;
   }
