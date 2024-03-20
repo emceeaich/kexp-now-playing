@@ -7,11 +7,11 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
+    "express": "^4.19.0",
+    "node-fetch": "^2.7.0"
   },
   "engines": {
-    "node": "8.x"
+    "node": "20.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/kexp-now-playing"
