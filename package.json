@@ -1,6 +1,6 @@
 {
   "name": "kexp-now-playing",
-  "version": "0.0.1",
+  "version": "2.0.1",
   "description": "Display currently playing track on KEXP.org",
   "main": "server.js",
   "scripts": {
