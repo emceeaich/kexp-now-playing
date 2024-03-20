@@ -27,8 +27,8 @@ a {
 div.main .album-art {
   display: float;
   text-align: left;
-  max-width: 25vh;
-  max-height: 25vh;
+  max-width: 50vh;
+  max-height: 50vh;
 }
 
 div.main .track {
@@ -45,6 +45,10 @@ main h4 {
 ul {
   margin: 0px;
   padding: 0px;
+}
+
+.footer {
+  padding-top: 2vh;
 }
 
 li {
