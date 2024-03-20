@@ -11,7 +11,7 @@
     "node-fetch": "^2.7.0"
   },
   "engines": {
-    "node": "20.x"
+    "node": "16.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/kexp-now-playing"
