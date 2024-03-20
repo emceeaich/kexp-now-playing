@@ -5,7 +5,8 @@
 body {
   font-family: helvetica, arial, sans-serif;
   margin: 3vh;
-  font-family: "Patua One", sans-serif;
+  font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+  font-weight: normal;
   color: goldenrod;
   background-color: black;
 }
@@ -24,9 +25,10 @@ a {
 }
 
 div.main .album-art {
-  width: 25%;
   display: float;
   text-align: left;
+  max-width: 25vh;
+  max-height: 25vh;
 }
 
 div.main .track {
