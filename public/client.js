@@ -4,7 +4,7 @@ $(function() {
     main = $('div.main');
     footer = $('div.footer ul');
     renderData();
-    window.setInterval(renderData, 60*1000);
+    window.setInterval(renderData, 15*1000);
   }
 );
   
