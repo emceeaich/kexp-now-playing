@@ -28,8 +28,8 @@ function renderData() {
         }
         
         html += '<div class="track">'
-                  + '<h2>' + data.artist.name + '<h2>'
-                  + '<h3>' + data.track.name + '</h3>';
+                  + '<h>' + data.artist.name + '</h3>'
+                  + '<h>' + data.track.name + '</h3>';
         
         if (data.release && data.release.name) {
           html += '<h4>' + data.release.name + '</h4>'; 
