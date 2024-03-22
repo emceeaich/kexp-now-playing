@@ -1,8 +1,8 @@
 var main, footer;
     
 $(function() {
-    main = $('div.main');
-    footer = $('div.footer ul');
+    main = document.querySelector('div.main');
+    footer = document.querySelector('div.footer ul');
     renderData();
     window.setInterval(renderData, 15*1000);
   }
@@ -10,12 +10,13 @@ $(function() {
   
 function renderData() {
   $.getJSON('/data', function(data) {
+        main.innerHTML = '';
         if (data.status === 'not-ready') {
-          main.html('<p>No data.</p>');
+          main.insertAdjacentHTML('afterbegin', '<p>No data.</p>');
           return;
         }
         
-        var html = "";
+        var html = '';
         var timestamp;
         var li;
         
@@ -28,8 +29,9 @@ function renderData() {
         }
         
         html += '<div class="track">'
-                  + '<h>' + data.artist.name + '</h3>'
-                  + '<h>' + data.track.name + '</h3>';
+                  + '<h2>' + data.track.name + '</h2>'
+                  + '<h3>' + data.artist.name + '</h3>';
+
         
         if (data.release && data.release.name) {
           html += '<h4>' + data.release.name + '</h4>'; 
