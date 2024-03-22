@@ -10,7 +10,9 @@ $(function() {
   
 function renderData() {
   $.getJSON('/data', function(data) {
+        // clean up
         main.innerHTML = '';
+    
         if (data.status === 'not-ready') {
           main.insertAdjacentHTML('afterbegin', '<p>No data.</p>');
           return;
@@ -20,8 +22,7 @@ function renderData() {
         var timestamp;
         var li;
         
-        // clean up 
-        main.innerHTML = '';
+
         if (data.release && data.release.largeimageuri) {
           html += '<img class="album-art" src="' + data.release.largeimageuri + '" alt="album art">';
         } else {
@@ -45,14 +46,14 @@ function renderData() {
                   + '</div>';
         }
         
-        main.html(html);
+        main.insertAdjacentHTML('afterbegin', html);
         
         // Timestamp
         timestamp = new Date(data.airdate).toLocaleString();
-        li = footer.find('.timestamp');
+        li = footer.querySelector('.timestamp');
         if (li) {
           li.remove();
         }
-        footer.append('<li class="timestamp">Last update ' + timestamp + '</li>');   
+        footer.insertAdjacentHTML('beforeend', '<li class="timestamp">Last update ' + timestamp + '</li>');   
   });
 }
