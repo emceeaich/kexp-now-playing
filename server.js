@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const express = require("express");
 const app = express();
+const POLL_INTERVAL = 30;
 var data = {
   message: "No data yet",
   status: "not-ready"
@@ -47,7 +48,7 @@ function update() {
     }
   });
 }
-var timeout = setInterval(update, 60 * 1000);
+var timeout = setInterval(update, POLL_INTERVAL * 1000);
 
 // get first set of data
 update();
