@@ -5,8 +5,15 @@ $(function() {
     footer = document.querySelector('div.footer ul');
     renderData();
     window.setInterval(renderData, 15*1000);
-  }
-);
+  
+    // do a refresh when navigating back to this tab
+    addEventListener("visibilitychange", (event) => {
+      if (document.visibilityState) {
+        renderData();
+      }
+    }
+    );
+});
   
 function renderData() {
   $.getJSON('/data', function(data) {
