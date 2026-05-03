@@ -28,7 +28,7 @@ function update() {
           var result = newData.results.find(result => {
             return result.artist; // return the most recent artist played, skipping air breaks and promos
           });
-          var newId = result.playid;
+          var newId = result.id;
           if (result.artist && newId !== id) {
             result.message = "Okay";
             result.status = "ready";
