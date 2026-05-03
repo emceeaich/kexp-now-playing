@@ -33,7 +33,7 @@ function refreshView() {
     if (data.image_uri) {
       html +=
         '<img class="album-art" src="' +
-        data.release.largeimageuri +
+        data.image_uri +
         '" alt="album art">';
     } else {
       html +=
