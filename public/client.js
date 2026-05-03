@@ -30,7 +30,7 @@ function refreshView() {
     var timestamp;
     var li;
 
-    if (data.release && data.release.largeimageuri) {
+    if (data.image_uri) {
       html +=
         '<img class="album-art" src="' +
         data.release.largeimageuri +
@@ -43,23 +43,23 @@ function refreshView() {
     html +=
       '<div class="track">' +
       "<h2>" +
-      data.track.name +
+      data.song +
       "</h2>" +
       "<h3>" +
-      data.artist.name +
+      data.artist +
       "</h3>";
 
-    if (data.release && data.release.name) {
-      html += "<h4>" + data.release.name + "</h4>";
+    if (data.album) {
+      html += "<h4>" + data.album + "</h4>";
     }
 
     html += "</div>";
 
-    if (data.comments && data.comments.length > 0) {
+    if (data.comment && data.comment.length > 0) {
       html +=
         '<div class="comment">' +
         "<p>" +
-        data.comments[0].text +
+        data.comment +
         "</p>" +
         "</div>";
     }
