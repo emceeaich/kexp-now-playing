@@ -20,7 +20,7 @@ app.get("/data", function(request, response) {
 
 function update() {
   console.debug('in update')
-  fetch("https://api.kexp.org/play/?format=json&limit=5ordering=-airdate").then(response => {
+  fetch("https://api.kexp.org/v2/plays/?limit=5&ordering=-airdate&offset=0&playlist_location=2").then(response => {
     if (response.ok) {
       response
         .json()
