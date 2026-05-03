@@ -15,13 +15,23 @@ div.header h1 img {
   max-height: 6vh;
 }
 
-div.header h1 {
-  font-size: 7vh;
+div.header { 
+  h1 {
+    font-size: 6vh;
+    margin: 0;
+  }
+  h2 {
+    font-size: 4vh;
+    margin: 0 1vh 0 0;
+  }
 }
-
 a {
   color: white;
   text-decoration: none;
+}
+
+.main {
+  margin-top: 5vh;
 }
 
 div.main .album-art {
@@ -36,10 +46,10 @@ div.main .track {
   font-size: 3vh;
 }
 
-main h2,
-main h3,
-main h4 {
-  margin-top: 0px;
+.main h2,
+.main h3,
+.main h4 {
+  margin-top: 1vh;
 }
 
 ul {
